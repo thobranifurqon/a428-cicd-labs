@@ -18,9 +18,9 @@ pipeline {
             }
         }
         stage ('Deploy') {
+            sleep 60
             steps{
                 sh './jenkins/scripts/deliver.sh'
-                sh 'pwd; sleep 60; echo"Apllication Was End"'
                 // input message: 'Sudah Selesai Menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
                 sh './jenkins/scripts/kill.sh'
                 
