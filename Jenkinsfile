@@ -1,4 +1,7 @@
 pipeline {
+    options {
+        timeout(time: 1, unit: 'MINUTES')
+    }
     agent {
         docker {
             image 'node:16-buster-slim' 
@@ -20,8 +23,9 @@ pipeline {
         stage ('Deploy') {
             steps{
                 sh './jenkins/scripts/deliver.sh'
-                input message: 'Sudah Selesai Menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
-                sh './jenkins/scripts/kill.sh'
+                // input message: 'Sudah Selesai Menggunakan React App? (Klik "Proceed" untuk mengakhiri)'
+                // sh './jenkins/scripts/kill.sh'
+                // timeout(time: 1, unit: 'MINUTES')
             }
         }
     }
