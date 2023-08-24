@@ -1,7 +1,7 @@
 pipeline {
-    options {
-        timeout(time: 1, unit: 'MINUTES')
-    }
+    // options {
+        // timeout(time: 1, unit: 'MINUTES')
+    // }
     agent {
         docker {
             image 'node:16-buster-slim' 
